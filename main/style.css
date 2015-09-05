@@ -1,7 +1,6 @@
 timetable-body {
   height: 50%;
   margin: 10px;
-  border: solid 1px black;
 }
 .table-row {
   height: 25px;
@@ -36,7 +35,7 @@ th {
   padding: 5px 10px;
 }
 td > a:hover {
-  text-color: unset;
+  color: table-class-color;
   cursor: default;
 }
 .class {

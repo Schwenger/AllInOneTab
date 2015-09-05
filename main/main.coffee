@@ -47,35 +47,35 @@ shortcuts = [
 	},
 	{
 		name: "lsf",
-		url: "lsf.uni-saarland.de",
+		url: "http://www.lsf.uni-saarland.de",
 		bgcolor: [255, 255, 255],
 		logoid: "uds",
 		square: true
 	},
 	{
 		name: "google+",
-		url: "plus.google.com",
+		url: "http://plus.google.com",
 		bgcolor: [255, 255, 255],
 		logoid: "g+",
 		square: true
 	},
 	{
 		name: "linkedin",
-		url: "linkedin.com",
+		url: "http://linkedin.com",
 		bgcolor: [255, 255, 255],
 		logoid: "linkedin",
 		square: true
 	},
 	{
 		name: "calendar",
-		url: "calendar.google.com",
+		url: "http://calendar.google.com",
 		bgcolor: [255, 255, 255],
 		logoid: "calendar",
 		square: true
 	},
 	{
 		name: "dictcc",
-		url: "dict.cc",
+		url: "http://dict.cc",
 		bgcolor: [255, 255, 255],
 		logoid: "dictcc",
 		square: true
