@@ -1,109 +1,265 @@
-body { 
-  	background: url(../images/wallpapers/default.jpg) no-repeat center center fixed;
-  	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
-
-	font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-	font-size: 100%;
+timetable-body {
+  height: 50%;
+  margin: 10px;
+  border: solid 1px black;
 }
-
-li > a > div.tile {
+.table-row {
+  height: 25px;
 }
-
-.logo-50 {
-	width: 50px; 
-	border: 1px solid #fff;
+.tr-odd {
+  height: 25px;
+  background-color: #add8e6;
 }
-
-.logo-200 {
-	width: 200px; 
-	border: 1px solid #fff;
+.tr-even {
+  height: 25px;
+  background-color: #d3d3d3;
 }
-
+th.table-time {
+  width: 5%;
+}
+td.table-time {
+  width: 5%;
+  border-right: dashed 1px #00008b;
+}
+td.table-additional {
+  border-left: dashed 1px #00008b;
+}
+th,
+td {
+  margin: 0;
+  text-align: center;
+  width: 19%;
+}
+th {
+  background: #00008b;
+  color: #d3d3d3;
+  padding: 5px 10px;
+}
+td > a:hover {
+  text-color: unset;
+  cursor: default;
+}
+.class {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+}
+.class-1 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 25px;
+}
+.class-2 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 50px;
+}
+.class-3 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 75px;
+}
+.class-4 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 100px;
+}
+.class-5 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 125px;
+}
+.class-6 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 150px;
+}
+.class-7 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 175px;
+}
+.class-8 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 200px;
+}
+.class-9 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 225px;
+}
+.class-10 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 250px;
+}
+.class-11 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 275px;
+}
+.class-12 {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  vertical-align: middle;
+  border-style: ridge;
+  color: black;
+  height: 300px;
+}
+logo-body {
+  height: 50%;
+  margin: 10px;
+}
+.logo-square {
+  width: 100px;
+}
+.logo-rect {
+  width: 200px;
+}
 .tile {
-	position: relative;
- 	top: 50%;
-  	transform: translateY(-50%);
-    background-color: #ccc;
-    height: 112px;
-    line-height: 80px;
-    padding: 16px;
-	border: 1px solid #000;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ccc;
+  height: 116px;
+  /*100 + 8 * 2*/
+  width: 116px;
+  line-height: 80px;
+  padding: 8px;
+  border: 1px solid #000;
 }
-
 .tile-red {
-	background-color: #ab0010;
-	border: 1px solid #ab0010;
+  background-color: #ab0010;
+  border: 1px solid #ab0010;
 }
-
 .tile-white {
-	background-color: #fff;
-	border: 1px solid #000;
+  background-color: #fff;
+  border: 1px solid #000;
 }
-
+body {
+  background: url(../images/wallpapers/default.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  font-size: 100%;
+  font-weight: bold;
+  font-size: 1.5em;
+}
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 a:hover {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 a.atlink {
-    color: #003366;
-    font-family: Exo2Black;
-    font-size: 125%;
-    text-decoration: none;
+  color: #003366;
+  font-family: Exo2Black;
+  font-size: 125%;
+  text-decoration: none;
 }
 a.atlink:hover {
-    color: #003366;
-    font-family: Exo2Black;
-    font-size: 125%;
-    text-decoration: none;
+  color: #003366;
+  font-family: Exo2Black;
+  font-size: 125%;
+  text-decoration: none;
 }
 a.ghublink {
-    color: #fff;
-    font-size: 150%;
-    font-weight: bold;
-    text-decoration: none;
+  color: #fff;
+  font-size: 150%;
+  font-weight: bold;
+  text-decoration: none;
 }
 a.ghublink:hover {
-    color: #fff;
-    font-size: 150%;
-    font-weight: bold;
-    text-decoration: none;
+  color: #fff;
+  font-size: 150%;
+  font-weight: bold;
+  text-decoration: none;
 }
-a.vlink { color: #fff; text-decoration: none; }
-a.vlink:hover { color: #fff; text-decoration: none; }
-li { padding-bottom: 12px; }
-
-.header { height: 9em; }
-
-/*.edit { position: relative; right: 8px; top: 2px; line-height: 14px; overflow:hidden;}
-*/
-
+a.vlink {
+  color: #fff;
+  text-decoration: none;
+}
+a.vlink:hover {
+  color: #fff;
+  text-decoration: none;
+}
+li {
+  padding-bottom: 12px;
+}
+.header {
+  height: 9em;
+}
 .link-tile {
-    position:relative;
-    overflow:hidden;
+  position: relative;
+  overflow: hidden;
 }
-
 .thumbnail {
-    position:relative;
-    overflow:hidden;
+  position: relative;
+  overflow: hidden;
 }
- 
 .caption {
-    position:absolute;
-    top:0;
-    right:0;
-    background:rgba(66, 139, 202, 0.75);
-    width:100%;
-    height:100%;
-    padding:2%;
-    display: none;
-    text-align:center;
-    color:#fff !important;
-    z-index:2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(66, 139, 202, 0.75);
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+  display: none;
+  text-align: center;
+  color: #fff !important;
+  z-index: 2;
 }
