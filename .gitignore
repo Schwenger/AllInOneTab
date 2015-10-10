@@ -6,3 +6,5 @@ concept.txt
 /images/logos/100
 /images/logos/200
 /images/originals
+*.js
+main/bundled.coffee
