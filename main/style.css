@@ -1,188 +1,144 @@
-timetable-body {
-  height: 50%;
-  margin: 10px;
+.timetable-body {
+  height: 100%;
+  width: 90%;
+  float: left;
+  align-content: space-around;
+  display: flex;
+  padding-right: 50px;
+  padding-left: 50px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
 }
-.table-row {
-  height: 25px;
-}
-.tr-odd {
-  height: 25px;
-  background-color: #add8e6;
-}
-.tr-even {
-  height: 25px;
-  background-color: #d3d3d3;
-}
-th.table-time {
-  width: 5%;
-}
-td.table-time {
-  width: 5%;
-  border-right: dashed 1px #00008b;
-}
-td.table-additional {
-  border-left: dashed 1px #00008b;
-}
-th,
-td {
-  margin: 0;
-  text-align: center;
-  width: 19%;
-}
-th {
-  background: #00008b;
-  color: #d3d3d3;
-  padding: 5px 10px;
-}
-td > a:hover {
-  color: table-class-color;
-  cursor: default;
-}
-.class {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-}
-.class-1 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 25px;
-}
-.class-2 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 50px;
-}
-.class-3 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 75px;
-}
-.class-4 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 100px;
-}
-.class-5 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 125px;
-}
-.class-6 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 150px;
-}
-.class-7 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 175px;
-}
-.class-8 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 200px;
-}
-.class-9 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 225px;
-}
-.class-10 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 250px;
-}
-.class-11 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 275px;
-}
-.class-12 {
-  width: 100%;
-  padding: 10px;
-  display: block;
-  vertical-align: middle;
-  border-style: ridge;
-  color: black;
-  height: 300px;
-}
-logo-body {
-  height: 50%;
-  margin: 10px;
-}
-.logo-square {
-  width: 100px;
-}
-.logo-rect {
+.timetable-element {
   width: 200px;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: black;
+}
+.period-container {
+  width: 200px;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: black;
+  height: 17%;
+}
+.period:hover {
+  cursor: pointer;
+}
+.empty-period {
+  width: 200px;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: black;
+  height: 17%;
+  background: rgba(128, 128, 128, 0.8);
+}
+.period {
+  width: 200px;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: black;
+  height: 17%;
+}
+.weekday {
+  width: 200px;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: black;
+  height: 4%;
+  background: rgba(180, 180, 180, 0.8);
+}
+.icon-body {
+  height: 100%;
+  width: 90%;
+  float: left;
+  align-content: space-around;
+  display: flex;
+  padding-right: 50px;
+  padding-left: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .tile {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #ccc;
-  height: 116px;
-  /*100 + 8 * 2*/
-  width: 116px;
-  line-height: 80px;
-  padding: 8px;
+  height: 216px;
+  /* 150 + 50 + 8 * 2 */
+  width: 216px;
   border: 1px solid #000;
+  text-align: center;
+  margin: 25px;
 }
-.tile-red {
-  background-color: #ab0010;
-  border: 1px solid #ab0010;
+.tile:hover {
+  cursor: pointer;
 }
-.tile-white {
-  background-color: #fff;
-  border: 1px solid #000;
+.alignment-helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.sidebar-body {
+  height: 100%;
+  width: 10%;
+  min-width: 150px;
+  background-color: rgba(0, 0, 0, 0.5);
+  float: left;
+  align-content: space-around;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.sidebar-item {
+  height: 100px;
+  width: 150px;
+  max-height: 80%;
+  max-width: 80%;
+  opacity: 1;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+.sidebar-icon {
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.5;
+}
+.sidebar-icon:hover {
+  opacity: 1;
 }
 body {
   background: url(../images/wallpapers/default.jpg) no-repeat center center fixed;
@@ -194,6 +150,23 @@ body {
   font-size: 100%;
   font-weight: bold;
   font-size: 1.5em;
+}
+html,
+body,
+.main {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.main {
+  padding: 0px;
+}
+.layout-element {
+  align-content: space-around;
+  display: flex;
+}
+.invisible {
+  display: none;
 }
 a {
   color: inherit;
@@ -239,7 +212,12 @@ li {
   padding-bottom: 12px;
 }
 .header {
-  height: 9em;
+  height: 2em;
+}
+.hor-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .link-tile {
   position: relative;

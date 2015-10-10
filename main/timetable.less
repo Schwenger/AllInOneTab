@@ -1,117 +1,48 @@
-timetable-body {
-    height: 50%;
-    margin: 10px;
+.timetable-body {
+    height: 100%;
+    width: 90%;
+    float: left;
+    .layout-element;
+    padding-right: 50px;
+    padding-left: 50px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 }
 
-@table-header-color: #00008B;
-@table-text-color: #D3D3D3;
-@table-class-color: black;
-@table-odd-color: #ADD8E6;
-@table-even-color: #D3D3D3;
-@table-row-height: 25px;
-
-.table-row {
-    height: @table-row-height;
-}
-
-.tr-odd {
-    .table-row;
-    background-color: @table-odd-color;
-}
-
-.tr-even {
-    .table-row;
-    background-color: @table-even-color;
-}
-
-th.table-time {
-    width: 5%;
-}
-
-td.table-time {
-    width: 5%;
-    border-right: dashed 1px @table-header-color
-}
-
-td.table-additional {
-    border-left: dashed 1px @table-header-color
-}
-
-th, td {
-    margin: 0;
+.timetable-element {
+    width: 200px;
     text-align: center;
-    width: 19%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-style: outset;
+    border-width: 2px;
+    border-color: black;
 }
 
-td {
+.period-container {
+    .timetable-element;
+    height: 17%; 
 }
 
-th {
-    background: @table-header-color;
-    color: @table-text-color;
-    padding: 5px 10px;
+.period:hover {
+    cursor: pointer;
 }
 
-td > a:hover {
-    color: table-class-color;
-    cursor: default;
-//     background: @table-header-color;
-//     color: @table-text-color;
+.empty-period {
+    .period-container;
+    background: rgba(128,128,128,0.8);
 }
 
-.class {
-    width: 100%;
-    padding: 10px;
-    display: block;
-    vertical-align: middle;
-    border-style: ridge;
-    color: black;
+.period {
+    .period-container;
 }
-.class-1 {
-    .class;
-    height: @table-row-height;
-}
-.class-2 {
-    .class;
-    height: 2 * @table-row-height;
-}
-.class-3 {
-    .class;
-    height: 3 * @table-row-height;
-}
-.class-4 {
-    .class;
-    height: 4 * @table-row-height;
-}
-.class-5 {
-    .class;
-    height: 5 * @table-row-height;
-}
-.class-6 {
-    .class;
-    height: 6 * @table-row-height;
-}
-.class-7 {
-    .class;
-    height: 7 * @table-row-height;
-}
-.class-8 {
-    .class;
-    height: 8 * @table-row-height;
-}
-.class-9 {
-    .class;
-    height: 9 * @table-row-height;
-}
-.class-10 {
-    .class;
-    height: 10 * @table-row-height;
-}
-.class-11 {
-    .class;
-    height: 11 * @table-row-height;
-}
-.class-12 {
-    .class;
-    height: 12 * @table-row-height;
+
+.weekday {
+    .timetable-element;
+    height: 4%;
+    background: rgba(180,180,180,0.8);
 }

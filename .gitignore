@@ -1,4 +1,8 @@
 .DS_Store
 concept.txt
 # Remove this entry to push the images. Right now without the images the extension won't work.
-/images
+# /images
+/images/logos/originals
+/images/logos/100
+/images/logos/200
+/images/originals
