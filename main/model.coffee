@@ -71,7 +71,7 @@ subjects = [
 		name: "Multicore System Architecture",
 		short: "SysArch II",
 		color: [0, 122, 41],
-		link: "https://www.lsf.uni-saarland.de/qisserver/rds?state=verpublish&status=init&vmfile=no&publishid=90532&moduleCall=webInfo&publishConfFile=webInfo&publishSubDir=veranstaltung",
+		link: "http://www-wjp.cs.uni-saarland.de/lehre/vorlesung/rechnerarchitektur/ws15/",
 		periods: [
 			{
 				weekday: weekday("Tuesday"),
@@ -108,7 +108,7 @@ subjects = [
 		name: "Automated Reasoning",
 		short: "Reasoning",
 		color: [153, 0, 0],
-		link: "https://www.lsf.uni-saarland.de/qisserver/rds?state=verpublish&status=init&vmfile=no&publishid=89924&moduleCall=webInfo&publishConfFile=webInfo&publishSubDir=veranstaltung",
+		link: "https://www.mpi-inf.mpg.de/departments/automation-of-logic/teaching/winter-20142015/automated-reasoning/",
 		periods: [
 			{
 				weekday: weekday("Monday"),
@@ -173,6 +173,22 @@ subjects = [
 				begin: beginId(1000),
 				duration: 4,
 				tutorial: false
+			}
+		]
+	},
+	{
+		name: "Theory of Distributed Systems",
+		short: "Distributed Systems",
+		color: [0,0,255],
+		link: "https://www.mpi-inf.mpg.de/de/departments/algorithms-complexity/teaching/winter-20152016/theory-of-distributed-systems/"
+		periods: [
+			{
+				weekday: weekday("Monday"),
+				begin: beginId(1200),
+				duration: 4,
+				tutorial: false,
+				prof: "Christoph Lenzen",
+				room: "E1.4 023"
 			}
 		]
 	}

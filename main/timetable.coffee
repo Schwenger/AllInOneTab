@@ -32,7 +32,6 @@ displayLectures = (tt) ->
 			root.append(slot)
 
 createDayElement = (day) ->
-	console.log(day)
 	$("<div class=weekday><span>#{weekdayId(day)}</span></div>")
 
 makeEmptyTimeTable = (layout) ->
