@@ -63,7 +63,10 @@ shortcuts = [
 
 timetableLayout = {
 	width: 6,
-	height: 5
+	height: 5,
+	slotHeight: 0.17,
+	headerHeight: 0.1,
+	padding: 0.05 # 100-(5*17 + 10)
 }
 
 subjects = [
@@ -179,7 +182,7 @@ subjects = [
 	{
 		name: "Theory of Distributed Systems",
 		short: "Distributed Systems",
-		color: [0,0,255],
+		color: [242, 134, 255],
 		link: "https://www.mpi-inf.mpg.de/de/departments/algorithms-complexity/teaching/winter-20152016/theory-of-distributed-systems/"
 		periods: [
 			{

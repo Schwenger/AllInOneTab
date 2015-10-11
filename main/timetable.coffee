@@ -1,9 +1,11 @@
 createEmptyLecture = () ->
-	$("<div class='empty-period'></div>")
+	$("<div class='empty-period col-md-2'></div>")
 
-makeRGBA = (colors, op) ->
-	[r,g,b] = colors
-	rgbaString(r,g,b,op)
+createRow = (header) ->
+	$("<div class='row timetable-#{if header then "header" else "row"}'></div>")
+
+createDayElement = (day) ->
+	$("<div class='weekday col-md-2'><span>#{weekdayId(day)}</span></div>")
 
 createLecture = (subject, period) ->
 	content = "<span>"
@@ -11,12 +13,16 @@ createLecture = (subject, period) ->
 	content += "<br>" + period.room if period.room?
 	content += "<br>" + period.prof if period.prof?
 	content += "</span>"
-	res = $("<div class='period'>#{content}</div>")
+	res = $("<div class='period col-md-2'>#{content}</div>")
 	res.css("background", makeRGBA(subject.color, 0.9))
 	res.click(() -> 
 		chrome.tabs.update { url: subject.link }
 	)
 	res
+
+makeRGBA = (colors, op) ->
+	[r,g,b] = colors
+	rgbaString(r,g,b,op)
 
 insertLectures = (tt, subjects) ->
 	for subject in subjects
@@ -25,14 +31,19 @@ insertLectures = (tt, subjects) ->
 			# skip header with weekday
 			tt[period.weekday][period.begin+1] = lec
 
-displayLectures = (tt) ->
-	root = $("#timetable-body")
+displayLectures = (root, tt) ->
+	rows = buildRows(tt[0].length - 1)
 	for weekday in tt
-		for slot in weekday
-			root.append(slot)
+		for slot, row in weekday
+			rows[row].append(slot)
+	for row in rows
+		root.append row
 
-createDayElement = (day) ->
-	$("<div class=weekday><span>#{weekdayId(day)}</span></div>")
+buildRows = (number) ->
+	res = []
+	for i in [0..number] 
+		res.push createRow(i is 0)
+	res
 
 makeEmptyTimeTable = (layout) ->
 	res = []
@@ -43,10 +54,19 @@ makeEmptyTimeTable = (layout) ->
 			res[day].push createEmptyLecture()
 	res
 
+setHeights = (root, tt) ->
+	for weekday in tt
+		for slot, slotId in weekday
+			h = if slotId isnt 0 then timetableLayout.slotHeight else timetableLayout.headerHeight
+			slot.css("height", screen.height * h)
+	root.css("padding-top", timetableLayout.padding  * screen.height)
+
 makeTimetable = () ->
 	tt = makeEmptyTimeTable(timetableLayout)
 	insertLectures(tt, subjects)
-	displayLectures(tt)
+	root = $("#timetable-body")
+	setHeights(root, tt)
+	displayLectures(root, tt)
 
 displayElement = (identifier) ->
 	$("#" + identifier).removeClass("invisible")
