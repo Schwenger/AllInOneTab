@@ -64,16 +64,17 @@ shortcuts = [
 timetableLayout = {
 	width: 6,
 	height: 5,
-	slotHeight: 0.17,
+	slotHeight: 0.15,
 	headerHeight: 0.1,
-	padding: 0.05 # 100-(5*17 + 10)
+	padding: 0
+	# padding: 0.05 # 100-(5*17 + 10)
 }
 
 subjects = [
 	{
 		name: "Multicore System Architecture",
 		short: "SysArch II",
-		color: [0, 122, 41],
+		color: [0, 153, 51],
 		link: "http://www-wjp.cs.uni-saarland.de/lehre/vorlesung/rechnerarchitektur/ws15/",
 		periods: [
 			{
@@ -89,6 +90,14 @@ subjects = [
 				duration: 4,
 				room: "E1.3 HS III",
 				tutorial: false
+			},
+			{
+				weekday: weekday("Wednesday"),
+				begin: beginId(1200),
+				duration: 4,
+				room: "E1.3 328",
+				prof: "Jonas Donia"
+				tutorial: true
 			}
 		]
 	}
@@ -96,7 +105,7 @@ subjects = [
 		name: "Database Management Systems",
 		short: "DBMS",
 		color: [255, 204, 0],
-		link: "https://infosys.uni-saarland.de/teaching/ws15/dbms.php",
+		link: "https://islecture.cs.uni-saarland.de/course/view.php?id=11",
 		periods: [
 			{
 				weekday: weekday("Thursday"),
@@ -104,62 +113,61 @@ subjects = [
 				duration: 4,
 				room: "E1.3 HS II",
 				tutorial: false
-			}
-		]
-	},
-	{
-		name: "Automated Reasoning",
-		short: "Reasoning",
-		color: [153, 0, 0],
-		link: "https://www.mpi-inf.mpg.de/departments/automation-of-logic/teaching/winter-20142015/automated-reasoning/",
-		periods: [
+			},
 			{
 				weekday: weekday("Monday"),
-				begin: beginId(1600),
-				duration: 4,
-				room: "E1.3 HS III",
-				tutorial: false
-			},
-			{
-				weekday: weekday("Thursday"),
-				begin: beginId(1200),
-				duration: 4,
-				room: "E1.3 HS III",
-				tutorial: false
-			}
-		]
-	},
-	{
-		name: "Machine Learning",
-		short: "ML",
-		color: [0, 102, 255],
-		link: "http://www.ml.uni-saarland.de/Lectures/ML1516/ML1516.htm",
-		periods: [
-			{
-				weekday: weekday("Wednesday"),
 				begin: beginId(1400),
 				duration: 4,
-				room: "E1.3 HS I",
-				tutorial: false
-			},
-			{
-				weekday: weekday("Friday"),
-				begin: beginId(1000),
-				duration: 4,
-				room: "E1.3 HS I",
-				tutorial: false
+				room: "E1.1 3.06",
+				tutorial: true,
+				prof: "Marcel Maltry"
 			}
 		]
 	},
+	# {
+	# 	name: "Machine Learning",
+	# 	short: "ML",
+	# 	color: [0, 102, 255],
+	# 	link: "http://www.ml.uni-saarland.de/Lectures/ML1516/ML1516.htm",
+	# 	periods: [
+	# 		{
+	# 			weekday: weekday("Wednesday"),
+	# 			begin: beginId(1400),
+	# 			duration: 4,
+	# 			room: "E2.5 HS I",
+	# 			tutorial: false
+	# 		},
+	# 		{
+	# 			weekday: weekday("Friday"),
+	# 			begin: beginId(1000),
+	# 			duration: 4,
+	# 			room: "E1.3 HS II",
+	# 			tutorial: false
+	# 		},
+	# 		{
+	# 			weekday: weekday("Friday"),
+	# 			begin: beginId(1400),
+	# 			duration: 4,
+	# 			room: "E1.3 SR 15",
+	# 			tutorial: true
+	# 		}
+	# 	]
+	# },
 	{
-		name: "Deep Learning",
-		short: "Deep Learning",
-		color: [204, 204, 204],
-		link: "https://infosys.uni-saarland.de/teaching/ws15/deep%20learning.php",
+		name: "House of Tweets",
+		short: "HoT",
+		color: [0, 102, 255],
+		link: "http://umtl.cs.uni-saarland.de/index.php?id=276",
 		periods: [
 			{
 				weekday: weekday("Seminar"),
 				begin: beginId(800),
+				duration: 4,
+				tutorial: false
+			},
+			{
+				weekday: weekday("Tuesday"),
+				begin: beginId(1200),
 				duration: 4,
 				tutorial: false
 			}
@@ -167,8 +175,8 @@ subjects = [
 	},
 	{
 		name: "Admissible Search Enhancements",
-		short: "Planning",
-		color: [204, 204, 204],
+		short: "ASE",
+		color: [210, 29, 0],
 		link: "http://fai.cs.uni-saarland.de/teaching/winter15-16/search-enhancements.html",
 		periods: [
 			{
@@ -180,21 +188,35 @@ subjects = [
 		]
 	},
 	{
-		name: "Theory of Distributed Systems",
-		short: "Distributed Systems",
-		color: [242, 134, 255],
-		link: "https://www.mpi-inf.mpg.de/de/departments/algorithms-complexity/teaching/winter-20152016/theory-of-distributed-systems/"
+		name: "Hoffmann",
+		short: "Hoffmann",
+		color: [172, 40, 172],
+		link: "http://fai.cs.uni-saarland.de/",
 		periods: [
 			{
-				weekday: weekday("Monday"),
-				begin: beginId(1200),
+				weekday: weekday("Thursday"),
+				begin: beginId(1600),
 				duration: 4,
-				tutorial: false,
-				prof: "Christoph Lenzen",
-				room: "E1.4 023"
+				tutorial: false
 			}
 		]
 	}
+	# {
+	# 	name: "Theory of Distributed Systems",
+	# 	short: "Distributed Systems",
+	# 	color: [242, 134, 255],
+	# 	link: "https://www.mpi-inf.mpg.de/de/departments/algorithms-complexity/teaching/winter-20152016/theory-of-distributed-systems/"
+	# 	periods: [
+	# 		{
+	# 			weekday: weekday("Monday"),
+	# 			begin: beginId(1200),
+	# 			duration: 4,
+	# 			tutorial: false,
+	# 			prof: "Christoph Lenzen",
+	# 			room: "E1.4 023"
+	# 		}
+	# 	]
+	# }
 ]
 
 swr3_id = "cbbeihlbfknckekkafdljfonbjgaelkb"

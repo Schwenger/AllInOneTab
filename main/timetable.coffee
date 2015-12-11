@@ -58,8 +58,8 @@ setHeights = (root, tt) ->
 	for weekday in tt
 		for slot, slotId in weekday
 			h = if slotId isnt 0 then timetableLayout.slotHeight else timetableLayout.headerHeight
-			slot.css("height", screen.height * h)
-	root.css("padding-top", timetableLayout.padding  * screen.height)
+			slot.css("height", 678 * h)
+	root.css("padding-top", timetableLayout.padding  * 678)# screen height = 678
 
 makeTimetable = () ->
 	tt = makeEmptyTimeTable(timetableLayout)
@@ -68,23 +68,8 @@ makeTimetable = () ->
 	setHeights(root, tt)
 	displayLectures(root, tt)
 
-displayElement = (identifier) ->
-	$("#" + identifier).removeClass("invisible")
-
-removeElement = (identifier) ->
-	$("#" + identifier).addClass("invisible")
-
-showTimetable = () ->
-	displayElement("timetable-body")
-	removeElement("icon-body")
-
-removeTimetable = () ->
-	removeElement("timetable-body")
-	displayElement("icon-body")
-
 timetableOpen = false
-timetableObject = undefined
 
 trigger_timetable = () ->
-	if timetableOpen then removeTimetable() else showTimetable()
+	if timetableOpen then displayDefault() else display "timetable"
 	timetableOpen = not timetableOpen

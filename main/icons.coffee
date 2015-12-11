@@ -15,11 +15,10 @@ createTile = (item) ->
 	TILE.append(HELPER)
 	TILE.append(IMG)
 	handler = () -> 
-		console.log("called")
 		chrome.tabs.update { url: item.url }
 	[TILE, id, handler]
 
-attackHandler = (id, handler) ->
+attachHandler = (id, handler) ->
 	$("#" + id).click(handler)
 
 placeTile = (root, tile) ->
@@ -29,8 +28,15 @@ createTileContainer = (root) ->
 	$("<div class='tile-container'></div>")
 
 makeLogos = () ->
-	root = $("#icon-body")
+	root = $("#icons-body")
+	more_than_one_row = false
 	for item in shortcuts
 		[tile, id, handler] = createTile(item)
 		placeTile(root, tile)
-		attackHandler(id, handler)
+		new_position = $("#" + id).position().top
+		if position?
+			more_than_one_row = true if position isnt new_position
+		else
+			position = new_position
+		attachHandler(id, handler)
+	root.append $("<div style='height: 100%;'>")

@@ -1,4 +1,6 @@
 
+@sidebar-icon-size: 90px;
+
 .sidebar-body {
   height: 100%;
   width: 10%;
@@ -12,18 +14,17 @@
 }
 
 .sidebar-item {
-	height: 100px;
-	width: 150px;
-	max-height: 80%;
-	max-width: 80%;
+	height: @sidebar-icon-size;
+	width: @sidebar-icon-size;
 	opacity: 1;
 	.hor-centered;
-	margin-bottom: 50px;
+	margin-top: 25px;
+	margin-bottom: 25px;
 }
 
 .sidebar-icon {
-	height: 100px;
-	width: 100px;
+	height: @sidebar-icon-size;
+	width: @sidebar-icon-size;
 	.hor-centered;
 	opacity: 0.5;
 }

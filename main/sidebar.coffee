@@ -1,7 +1,4 @@
 
-show_preferences = () ->
-	return 0
-
 trigger_swr3 = () ->
 	chrome.runtime.sendMessage(swr3_id, {intent: "trigger_swr3"})
 
@@ -67,7 +64,7 @@ sidebarContent = [
 	{
 		name: "preferences",
 		icon: "cog.png",
-		call: show_preferences
+		call: trigger_preferences
 	},
 	{
 		name: "timetable",
