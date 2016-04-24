@@ -39,4 +39,4 @@ makeLogos = () ->
 		else
 			position = new_position
 		attachHandler(id, handler)
-	root.append $("<div style='height: 100%;'>")
+	root.append $("<div style='height: 100%;'>") unless more_than_one_row
