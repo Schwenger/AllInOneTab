@@ -11,7 +11,7 @@ You can customize the shortcuts to your very own needs. The only thing you need 
 ## Timetable
 Using the sidebar you can switch to the timetable display. Here, you can display your timetable, optional with the lecturer's name (or whoever is leading this meeting), and a room. Choose a color for the lecture and - if you want - include a link to the lecture's homepage. 
 
-![screenshot presenting the shortcut display](https://github.com/Schwenger/YetAnotherEnhancedNewTabPage/blob/master/images/screenshots/shortcuts.png)
+![screenshot presenting the shortcut display](https://github.com/Schwenger/YetAnotherEnhancedNewTabPage/blob/master/images/screenshots/timetable.png)
 
 ## Radio integration
 Right now, there is fairly limited support to this feature, but if you're German or enjoy listening to German people, you can start a live stream to the "SWR 3" Station (South-West-Radio 3) with one click - provided you have my SWR3 extension installed (available on github). More support will be integrated if requested.
