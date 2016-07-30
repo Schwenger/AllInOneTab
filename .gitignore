@@ -7,4 +7,9 @@ concept.txt
 /images/logos/200
 /images/originals
 *.js
-main/bundled.coffee
+
+/main/out
+
+# Sublime Text Support
+*.sublime-project
+*.sublime-workspace
