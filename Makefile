@@ -6,22 +6,28 @@ COFFEE=main/coffee
 DIRS=${OUT} ${TEMP}
 DEPEN=coffeescript-concat
 
-all: css js
+all: css js html
 
 .PHONY: install
 install: install_dependencies all
 
-.PHONY: css
-less: ${OUT}/style.css
+.PHONY: html
+html: ${OUT}/main.html
 
-out/style.css: $(wildcard ${LESS}/*.less) | ${DIRS}
+${OUT}/main.html: main/main.html
+	cp $^ $@
+
+.PHONY: css
+css: ${OUT}/style.css
+
+${OUT}/style.css: $(wildcard ${LESS}/*.less) | ${DIRS}
 	lessc ${LESS}/style.less > $@
 
 .PHONY: js
 js: ${OUT}/bundled.js | ${DIRS}
 
 ${OUT}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
-	coffee --output $@ --compile $^
+	coffee --output ${OUT} --compile $^
 
 ${TEMP}/bundled.coffee: $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
 	coffeescript-concat -I ${COFFEE} ${COFFEE}/main.coffee -o ${TEMP}/bundled.coffee
