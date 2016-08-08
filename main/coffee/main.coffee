@@ -1,4 +1,9 @@
 
+#= require <sidebar.coffee>
+#= require <timetable.coffee>
+#= require <icons.coffee>
+#= require <preferences.coffee>
+
 pages = ["icons", "preferences", "timetable"]
 defaultPage = "icons"
 

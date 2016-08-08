@@ -1,3 +1,6 @@
+#= require <model.coffee>
+#= require <util.coffee>
+
 createEmptyLecture = () ->
 	$("<div class='empty-period col-md-2'></div>")
 

@@ -8,7 +8,7 @@ concept.txt
 /images/originals
 *.js
 
-/main/out
+/out
 
 # Sublime Text Support
 *.sublime-project

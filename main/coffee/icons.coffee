@@ -1,3 +1,4 @@
+#= require <model.coffee>
 
 createTile = (item) ->
 	[r, g, b] = item.bgcolor
