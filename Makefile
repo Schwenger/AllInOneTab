@@ -4,8 +4,12 @@ TEMP=out/temp
 LESS=main/less
 COFFEE=main/coffee
 DIRS=${OUT} ${TEMP}
+DEPEN=coffeescript-concat
 
 all: css js
+
+.PHONY: install
+install: install_dependencies all
 
 .PHONY: css
 less: ${OUT}/style.css
@@ -32,3 +36,9 @@ clean: | ${DIRS}
 .PHONY: clean_temp
 clean_temp: | ${DIRS}
 	rm -rf ${TEMP}
+
+.PHONY: install_dependencies
+install_dependencies: ${DEPEN}
+
+${DEPEN}: 
+	npm -g install $@
