@@ -28,7 +28,7 @@ makeRGBA = (colors, op) ->
 	rgbaString(r,g,b,op)
 
 insertLectures = (tt, subjects) ->
-	for subject in subjects
+	for subject in model.subjects
 		for period in subject.periods
 			lec = createLecture(subject, period)
 			# skip header with weekday
@@ -60,13 +60,13 @@ makeEmptyTimeTable = (layout) ->
 setHeights = (root, tt) ->
 	for weekday in tt
 		for slot, slotId in weekday
-			h = if slotId isnt 0 then timetableLayout.slotHeight else timetableLayout.headerHeight
+			h = if slotId isnt 0 then model.timetableLayout.slotHeight else model.timetableLayout.headerHeight
 			slot.css("height", 678 * h)
-	root.css("padding-top", timetableLayout.padding  * 678)# screen height = 678
+	root.css("padding-top", model.timetableLayout.padding  * 678)# screen height = 678
 
 makeTimetable = () ->
-	tt = makeEmptyTimeTable(timetableLayout)
-	insertLectures(tt, subjects)
+	tt = makeEmptyTimeTable(model.timetableLayout)
+	insertLectures(tt, model.subjects)
 	root = $("#timetable-body")
 	setHeights(root, tt)
 	displayLectures(root, tt)

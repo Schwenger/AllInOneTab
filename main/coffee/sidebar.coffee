@@ -1,6 +1,7 @@
+#= require <model.coffee>
 
 trigger_swr3 = () ->
-	chrome.runtime.sendMessage(swr3_id, {intent: "trigger_swr3"})
+	chrome.runtime.sendMessage(model.swr3_id, {intent: "trigger_swr3"})
 
 makeSidebarDiv = (element, id) ->
 	$(" <div class='sidebar-item'><img class='sidebar-icon' id='" + id + "' src='../images/sidebar/" + element.icon + "'></img></div> ")
@@ -59,35 +60,9 @@ setup_translator = (item, id) ->
 	resetInputOnClose()
 	enableAutoFocus()
 
-# Due to scoping we cannot move this definition into 'model.coffee'.
-sidebarContent = [
-	{
-		name: "preferences",
-		icon: "cog.png",
-		call: trigger_preferences
-	},
-	{
-		name: "timetable",
-		icon: "timetable.png",
-		call: trigger_timetable
-	},
-	{
-		name: "swr3",
-		icon: "swr3.png",
-		call: trigger_swr3
-	},
-	{
-		name: "translator",
-		icon: "translator.png",
-		call: open_translator_input_field,
-		setup: setup_translator
-		hotkey: 84
-	}
-]
-
 makeSidebar = () ->
 	sidebar = $("#sidebar-body")
-	for element, index in sidebarContent
+	for element, index in model.sidebarContent
 		id = "sidebar-icon-" + element.name
 		div = makeSidebarDiv(element, id)
 		sidebar.append(div)

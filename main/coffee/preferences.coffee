@@ -39,7 +39,6 @@ displayContent = (data) ->
 makePreferences = () ->
 	chrome.storage.sync.get({"subjects": []}, displayContent)
 
-
 preferencesOpen = false
 
 trigger_preferences = () ->

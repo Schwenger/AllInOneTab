@@ -1,4 +1,5 @@
 #= require <model.coffee>
+#= require <util.coffee>
 
 createTile = (item) ->
 	[r, g, b] = item.bgcolor
@@ -31,7 +32,7 @@ createTileContainer = (root) ->
 makeLogos = () ->
 	root = $("#icons-body")
 	more_than_one_row = false
-	for item in shortcuts
+	for item in model.shortcuts
 		[tile, id, handler] = createTile(item)
 		placeTile(root, tile)
 		new_position = $("#" + id).position().top
