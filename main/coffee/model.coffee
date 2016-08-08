@@ -1,3 +1,5 @@
+#= require <util.coffee>
+
 shortcuts = [
 	{
 		name: "calendar",
