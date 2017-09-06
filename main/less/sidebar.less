@@ -3,32 +3,25 @@
 
 .sidebar-body {
   height: 100%;
-  width: 10%;
-  min-width: 150px;
+  width: @sidebarwidth;
   background-color: rgba(0,0,0,0.5);
+  color: black;
   float: left;
-  .layout-element;
+  display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   justify-content: space-around;
 }
 
 .sidebar-item {
-	height: @sidebar-icon-size;
-	width: @sidebar-icon-size;
-	opacity: 1;
 	.hor-centered;
-	margin-top: 25px;
-	margin-bottom: 25px;
-}
-
-.sidebar-icon {
-	height: @sidebar-icon-size;
-	width: @sidebar-icon-size;
-	.hor-centered;
+	font-size: 7em;
 	opacity: 0.5;
-}
 
-.sidebar-icon:hover {
-	opacity: 1;
+	&:hover {
+		opacity: 1;
+	}
+
+	&-active {
+		opacity: 1;	
+	}
 }

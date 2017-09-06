@@ -1,78 +1,76 @@
-#= require <model.coffee>
-#= require <util.coffee>
 
-createEmptyLecture = () ->
-	$("<div class='empty-period col-md-2'></div>")
+num2day = (i) ->
+	switch i
+		when 0 then "Monday"
+		when 1 then "Tuesday"
+		when 2 then "Wednesday"
+		when 3 then "Thursday"
+		when 4 then "Friday"
+		when 5 then "Saturday"
+		when 6 then "Sunday"
+		else "Uh.... There are not enough days in the weeks..."
 
-createRow = (header) ->
-	$("<div class='row timetable-#{if header then "header" else "row"}'></div>")
+class TimeTable
 
-createDayElement = (day) ->
-	$("<div class='weekday col-md-2'><span>#{weekdayId(day)}</span></div>")
+	DAYS: 5
+	SLOTS: 5
+	PADDING_PERCENT: 2
 
-createLecture = (subject, period) ->
-	content = "<span>"
-	content += "<big><big> #{subject.short} </big></big>"
-	content += "<br>" + period.room if period.room?
-	content += "<br>" + period.prof if period.prof?
-	content += "</span>"
-	res = $("<div class='period col-md-2'>#{content}</div>")
-	res.css("background", makeRGBA(subject.color, 0.9))
-	res.click(() -> 
-		chrome.tabs.update { url: subject.link }
-	)
-	res
+	CellContent:
+		"everything": 2 
+		"noteacher": 1
+		"nameonly": 0
 
-makeRGBA = (colors, op) ->
-	[r,g,b] = colors
-	rgbaString(r,g,b,op)
+	emptyCell: ->
+		$("<div class='timetable-cell timetable-cell-#{@SLOTS} timetable-cell-empty'>")
 
-insertLectures = (tt, subjects) ->
-	for subject in model.subjects
-		for period in subject.periods
-			lec = createLecture(subject, period)
-			# skip header with weekday
-			tt[period.weekday][period.begin+1] = lec
+	constructor: () ->
+		0 # Nothing to do, really.
 
-displayLectures = (root, tt) ->
-	rows = buildRows(tt[0].length - 1)
-	for weekday in tt
-		for slot, row in weekday
-			rows[row].append(slot)
-	for row in rows
-		root.append row
+	resize: () ->
+		root = $('#timetable')
+		narrow = root.width() / @DAYS < 190 # MAGIC! Or, well, empirical evidence... MAGIC!!
+		content = @CellContent.everything
+		# Strange solution: 
+		# Try for each amount of content whether it fits by adding cells, then computing heights.
+		# Also: First try with full name, then try abbreviation.
+		for needSpace in [false, true]
+			for content in [@CellContent.everything, @CellContent.noteacher, @CellContent.nameonly]
+				sample = @addCells(root, content, narrow or needSpace)
+				if (not needSpace) and (sample.width() < sample.children().first().width())
+					needSpace = true
+					break
+				sumHeights = (accu, element) -> accu + $(element).height()
+				if sample.height() >= sample.children().toArray().reduce(sumHeights, 0)
+					return
+		console.log "Oh boy, there is really not much I can do with so little space, sorry. :/"
+		
+	 
+	addCells: (root, content, narrow) ->
+		root.empty()
+		sample = undefined	
+		for appointments, i in Model.appointments 
+			day_obj = @createDay num2day(i), narrow
+			cells = (@createCell(period, content, narrow) for period in appointments)
+			day_obj.append cell for cell in cells
+			root.append(day_obj)
+			[..., sample] = cells unless sample? # Pick any non-header cell as sample.
+		return sample # return any representative cell, i.e. not a header cell.
 
-buildRows = (number) ->
-	res = []
-	for i in [0..number] 
-		res.push createRow(i is 0)
-	res
+	createDay: (day, narrow) ->
+		day_obj = $("<div class='timetable-day timetable-day-#{@DAYS}' id='timetable-day-#{day}'>")
+		day_obj.append( 
+			$("<div class='timetable-cell timetable-cell-header timetable-cell-header-#{@SLOTS}'> #{if narrow then day[...3] else day} </div>") 
+			)
+		return day_obj
 
-makeEmptyTimeTable = (layout) ->
-	res = []
-	for day in [0...layout.width]
-		res.push []
-		res[day].push createDayElement(day)
-		for slot in [0...layout.height]
-			res[day].push createEmptyLecture()
-	res
-
-setHeights = (root, tt) ->
-	for weekday in tt
-		for slot, slotId in weekday
-			h = if slotId isnt 0 then model.timetableLayout.slotHeight else model.timetableLayout.headerHeight
-			slot.css("height", 678 * h)
-	root.css("padding-top", model.timetableLayout.padding  * 678)# screen height = 678
-
-makeTimetable = () ->
-	tt = makeEmptyTimeTable(model.timetableLayout)
-	insertLectures(tt, model.subjects)
-	root = $("#timetable-body")
-	setHeights(root, tt)
-	displayLectures(root, tt)
-
-timetableOpen = false
-
-trigger_timetable = () ->
-	if timetableOpen then displayDefault() else display "timetable"
-	timetableOpen = not timetableOpen
+	createCell: (period, content, narrow) -> 
+		return @emptyCell() unless period?
+		color = "rgba(#{period.color[0]}, #{period.color[1]}, #{period.color[2]}, 0.8)"
+		cell = $("<div class='timetable-cell timetable-cell-#{@SLOTS}' style='background-color: #{color};'>")
+		cell.append( $("<span class='title'> #{if narrow then period.abbrev else period.name} </span>") ) 
+		if content > @CellContent.nameonly
+			cell.append( $("<span class='room'> #{period.room} </span>") )
+		if content > @CellContent.noteacher
+			cell.append( $("<span class='prof'> #{period.teacher} </span>") ) 
+		return cell

@@ -1,62 +1,31 @@
 
-#= require <sidebar.coffee>
-#= require <timetable.coffee>
-#= require <icons.coffee>
-#= require <preferences.coffee>
+favs = new Favorites
+timetable = new TimeTable
+# prefs = new Preferences
 
-# Either 'call' or 'function_name' should be defined. 'call' is used when the action has no side effects on the extension's page.
-# Note that it might influence other extensions or redirect the page entirely.
-# 'function_name' is used when the logic is defined in the sidebar file and the function name allows to call the respective function.
-sidebarContent = [
-	{
-		name: "preferences",
-		icon: "cog.png",
-		call: trigger_preferences
-	},
-	{
-		name: "timetable",
-		icon: "timetable.png",
-		call: trigger_timetable
-	},
-	{
-		name: "swr3",
-		icon: "swr3.png",
-		call: trigger_swr3
-	},
-	{
-		name: "translator",
-		icon: "translator.png",
-		call: open_translator_input_field,
-		setup: setup_translator
-		hotkey: 84
-	}
-]
+id2obj = (pageId) -> 
+	switch pageId
+		when "favorites" then favs
+		# when "preferences" then prefs
+		when "timetable" then timetable
+		else console.log "Something went horribly wrong. Unknown page #{pageId}. Panic mode ENABLED!"
 
-# This is necessary to make sure that the calls are actually defined.
-model.sidebarContent = sidebarContent
+defaultPage = "favorites"
 
-pages = ["icons", "preferences", "timetable"]
-defaultPage = "icons"
+currentPage = defaultPage
 
-display = (identifier) ->
-	for page in pages
-		if page is identifier
-			displayElement page
-		else
-			removeElement page
+refresh = (id) -> id2obj(id).resize()
 
-displayDefault = () ->
-	display defaultPage
+openPage = (pageId) ->
+	$('#' + currentPage).addClass("invisible")
+	$('#' + pageId).removeClass("invisible")
+	# For correct size computations we have to make the window visible before resizing.
+	refresh pageId
+	$("#sidebar-icon-#{currentPage}").removeClass("sidebar-item-active")
+	$("#sidebar-icon-#{pageId}").addClass("sidebar-item-active")
+	currentPage = pageId
 
-displayElement = (identifier) ->
-	$("#" + identifier + "-body").removeClass("invisible")
+sidebar = new Sidebar openPage
 
-removeElement = (identifier) ->
-	$("#" + identifier + "-body").addClass("invisible")
-
-makeSidebar()
-makeLogos()
-makeTimetable()
-makePreferences()
-displayDefault()
-
+$(window).resize(-> refresh(currentPage))
+openPage(defaultPage)

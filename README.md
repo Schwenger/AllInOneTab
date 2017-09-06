@@ -1,3 +1,5 @@
+OUTDATED!!
+
 # THE new tab page you always wanted 
 First off - congratulations: You have found it. THE new tab page. Well, unless you have no weekly schedule or hate shortcuts. In these cases, you have to continue your search.
 

@@ -1,189 +1,86 @@
-#= require <util.coffee>
+class Model
 
-model = {
-	shortcuts: [
+Model.favs = [
 		{
-			name: "calendar",
-			url: "http://calendar.google.com",
-			bgcolor: [255, 255, 255],
-			logoid: "calendar"
-		},
-		{
-			name: "mensa",
-			url: "about:blank",
-			bgcolor: [255, 255, 255],
-			logoid: "studentenwerk"
-		},
-		{
-			name: "amazon",
-			url: "http://amazon.de",
-			bgcolor: [255, 255, 255],
-			logoid: "amazon"
-		},
-		{
-			name: "GitHub",
-			url: "http://github.com",
-			bgcolor: [255, 255, 255],
-			logoid: "github-alternative"
-		},
-		{
-			name: "lsf",
-			url: "about:blank",
-			bgcolor: [255, 255, 255],
-			logoid: "uds"
-		},
-		{
-			name: "dictcc",
-			url: "http://dict.cc",
-			bgcolor: [255, 255, 255],
-			logoid: "dictcc"
-		},
-		{
-			name: "linkedin",
-			url: "http://linkedin.com",
-			bgcolor: [255, 255, 255],
-			logoid: "linkedin"
-		},
-		{
-			name: "youtube",
-			url: "http://youtube.com",
-			bgcolor: [255, 255, 255],
-			logoid: "youtube"
-		},
-		{
-			name: "GooglePlus",
-			url: "http://plus.google.com",
-			bgcolor: [255, 255, 255],
-			logoid: "g+"
-		},
-		{
-			name: "humblebundle",
-			url: "http://www.humblebundle.com/",
-			bgcolor: [255, 255, 255],
-			logoid: "humblebundle"
+			"name": "amazon"
+			"icon": "https://images-na.ssl-images-amazon.com/images/G/01/gc/designs/livepreview/a_generic_white_10_us_noto_email_v2016_us-main._CB277146614_.png",
+			"url": "https://amazon.com/"
+		}, {
+			"name": "humblebundle"
+			"icon": "https://pbs.twimg.com/profile_images/609471525863976960/r3m_pjpj.png",
+			"url": "https://www.humblebundle.com/"
+		}, {
+			"name": "youtube"
+			"icon": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png",
+			"url": "https://www.youtube.com/"
+		}, {
+			"name": "saarlanduniveristy"
+			"icon": "https://www.szsb.uni-saarland.de/tl_files/szsb/bilder/layout/logos/unieule.png",
+			"url": "http://www.uni-saarland.de/nc/startseite.html"
+		}, {
+			"name": "react"
+			"icon": "https://avatars1.githubusercontent.com/u/12135913?v=4&s=200",
+			"url": "https://www.react.uni-saarland.de/"
+		}, {
+			"name": "amazonmusic"
+			"icon": "https://images-na.ssl-images-amazon.com/images/I/41VXGF76krL._SX425_.jpg",
+			"url": "https://www.music.amazon.com/"
+		}, {
+			"name": "netflix"
+			"icon": "https://vignette2.wikia.nocookie.net/logopedia/images/b/b2/NetflixIcon2016.jpg/revision/latest/scale-to-width-down/2000?cb=20160620223003",
+			"url": "https://www.netflix.com/"
+		}, {
+			"name": "facebook"
+			"icon": "https://img06.deviantart.net/876b/i/2009/297/b/8/facebook_icon_by_ben_anderson.png",
+			"url": "https://www.facebook.com/"
 		}
 	]
 
-	timetableLayout: {
-		width: 6,
-		height: 5,
-		slotHeight: 0.15,
-		headerHeight: 0.1,
-		padding: 0
-		# padding: 0.05 # 100-(5*17 + 10)
-	}
 
-	subjects: [
-		{
-			name: "Introduction to Database Systems",
-			short: "Databases",
-			color: [0, 153, 51],
-			link: "about:blank",
-			periods: [
-				{
-					weekday: weekday("Wednesday"),
-					begin: beginId(1000),
-					duration: 4,
-					room: "Lecture Hall III",
-					prof: "Prof. Doe",
-					tutorial: false
-				},
-				{
-					weekday: weekday("Monday"),
-					begin: beginId(1400),
-					duration: 4,
-					room: "Lecture Hall I",
-					prof: "Prof. Doe",
-					tutorial: false
-				},
-				{
-					weekday: weekday("Friday"),
-					begin: beginId(1200),
-					duration: 4,
-					room: "Lecture Hall I",
-					prof: "John Doette",
-					tutorial: false
-				},
-			]
-		},
-		{
-			name: "Artificial Intelligence",
-			short: "AI",
-			color: [255, 165, 0],
-			link: "about:blank",
-			periods: [
-				{
-					weekday: weekday("Monday"),
-					begin: beginId(1200),
-					duration: 4,
-					tutorial: false,
-					room: "Seminar Room 301",
-					prof: "Dr. Yasmin Doe",
-				},
-				{
-					weekday: weekday("Wednesday"),
-					begin: beginId(1200),
-					duration: 4,
-					tutorial: false,
-					room: "Seminar Room 334",
-					prof: "Dr. Yasmin Doe",
-				}
-			]
-		},
-		{
-			name: "System Architecture II",
-			short: "SysArch",
-			color: [63, 110, 255],
-			link: "about:blank",
-			periods: [
-				{
-					weekday: weekday("Monday"),
-					begin: beginId(1000),
-					duration: 4,
-					tutorial: false,
-					room: "Great Hall",
-					prof: "Prof. Imagine",
-				},
-				{
-					weekday: weekday("Thursday"),
-					begin: beginId(1000),
-					duration: 4,
-					tutorial: false,
-					room: "Great Hall",
-					prof: "Prof. Imagine",
-				}
-			]
-		},
-		{
-			name: "Project Work",
-			short: "Project Work",
-			color: [210, 29, 0],
-			periods: [
-				{
-					weekday: weekday("Thursday"),
-					begin: beginId(1400),
-					duration: 4,
-					tutorial: false
-				}
-			]
-		},
-		{
-			name: "Theory of Distributed Systems",
-			short: "Distributed Systems",
-			color: [242, 134, 255],
-			link: "https://www.mpi-inf.mpg.de/de/departments/algorithms-complexity/teaching/winter-20152016/theory-of-distributed-systems/"
-			periods: [
-				{
-					weekday: weekday("Seminar"),
-					begin: beginId(800),
-					duration: 4,
-					tutorial: false,
-					prof: "Dr. Thingy"
-				}
-			]
-		}
-	]
+verification = 
+	"name": "Verification",
+	"room": "E1.3 HS002"
+	"abbrev": "Ver"
+	"teacher": "J. Doe"
+	"color": [66, 134, 244]
 
-	swr3_id: "mjjkaokajkcfjghejaadoibddbjojjib"
+emsys = 
+	"name": "Embedded Systems",
+	"room": "E2.2 HS01"
+	"abbrev": "ES"
+	"teacher": "J. Snow"
+	"color": [138, 229, 2]
 
-}
+runtime = 
+	"name": "Runtime Verification",
+	"room": "E1.1 SR016"
+	"abbrev": "RV"
+	"teacher": "S. Mario"
+	"color": [143, 63, 255]
+
+hybrid = 
+	"name": "Hybrid Systems",
+	"room": "E1.1 SR016"
+	"abbrev": "HySy"
+	"teacher": "T. Flowers"
+	"color": [229, 161, 2]
+
+nothing = undefined
+
+Model.appointments = [
+	[ # Monday
+		nothing, verification, nothing, hybrid, nothing
+	],
+	[ # Tuesday
+		nothing, emsys, nothing, nothing, hybrid
+	],
+	[ # Wednesday
+		nothing, nothing, nothing, nothing, nothing
+	],
+	[ # Thursday
+		runtime, nothing, verification, nothing, nothing
+	],
+	[ # Friday
+		runtime, nothing, nothing, nothing, hybrid
+	],
+]

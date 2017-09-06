@@ -1,7 +1,8 @@
 @import "timetable.less";
-@import "icons.less";
+@import "tiles.less";
 @import "sidebar.less";
-@import "preferences.less";
+
+@sidebarwidth: 12%;
 
 body { 
   	background: url(../images/wallpapers/default.jpg) no-repeat center center fixed;
@@ -17,6 +18,13 @@ body {
     font-size: 1.5em;
 }
 
+.main-panel {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - @sidebarwidth);
+    left: @sidebarwidth;
+}
+
 html, body, .main {
     height: 100%;
     width: 100%;
@@ -25,11 +33,6 @@ html, body, .main {
 
 .main {
     padding: 0px;
-}
-
-.layout-element {
-    align-content: space-around;
-    display: flex;
 }
 
 .invisible {
@@ -42,70 +45,8 @@ html, body, .main {
     vertical-align: middle;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-a:hover {
-    color: inherit;
-    text-decoration: none;
-}
-a.atlink {
-    color: #003366;
-    font-family: Exo2Black;
-    font-size: 125%;
-    text-decoration: none;
-}
-a.atlink:hover {
-    color: #003366;
-    font-family: Exo2Black;
-    font-size: 125%;
-    text-decoration: none;
-}
-a.ghublink {
-    color: #fff;
-    font-size: 150%;
-    font-weight: bold;
-    text-decoration: none;
-}
-a.ghublink:hover {
-    color: #fff;
-    font-size: 150%;
-    font-weight: bold;
-    text-decoration: none;
-}
-a.vlink { color: #fff; text-decoration: none; }
-a.vlink:hover { color: #fff; text-decoration: none; }
-li { padding-bottom: 12px; }
-
-.header { height: 2em; }
-
 .hor-centered {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.link-tile {
-    position:relative;
-    overflow:hidden;
-}
-
-.thumbnail {
-    position:relative;
-    overflow:hidden;
-}
- 
-.caption {
-    position:absolute;
-    top:0;
-    right:0;
-    background:rgba(66, 139, 202, 0.75);
-    width:100%;
-    height:100%;
-    padding:2%;
-    display: none;
-    text-align:center;
-    color:#fff !important;
-    z-index:2;
 }
