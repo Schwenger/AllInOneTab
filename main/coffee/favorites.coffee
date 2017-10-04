@@ -38,21 +38,26 @@ class Favorites
 			lower = rowId * number
 			upper = (rowId + 1) * (number)
 			elems = Model.favs[lower...upper]
-			for elem in elems
-				tile = @createTile(elem, dim)
-				row.append(tile)
-				tile.click( -> 
-					Favorites.updateStats(elem.name)
-					chrome.tabs?.update { url: elem.url } # TODO: remove question mark
-				)
+			self = @ # Allows access in loop closure
+			for elem in elems 
+				do (elem) ->
+					tile = self.createTile(elem, dim)
+					row.append(tile)
+					tile.click( () -> 
+						Favorites.updateStats(elem.name)
+						if chrome.tabs?
+							chrome.tabs.update { url: elem.url }
+						else 
+							document.location.href = elem.url
+					)
 			row
 
 	createRow: (id) -> $("<div class='tile_row' id='tile_row_#{id}'>")
 		
-	createTile: (obj, dim) ->
-		div = $("<div class='tile tile-#{dim}' id='tile-#{obj.name}'>")
+	createTile: (fav, dim) ->
+		div = $("<div class='tile tile-#{dim}' id='tile-#{fav.name}'>")
 		helper = $('<div class="alignment-helper">')
-		img = $("<img src='#{obj.icon}'>")
+		img = $("<img src='#{fav.icon}'>")
 		div.append(helper)
 		div.append(img)
 		return div
