@@ -3,7 +3,7 @@ class Model
 Model.favs = [
 		{
 			"name": "amazon"
-			"icon": "https://images-na.ssl-images-amazon.com/images/G/01/gc/designs/livepreview/a_generic_white_10_us_noto_email_v2016_us-main._CB277146614_.png",
+			"icon": "https://topclassactions.com/wp-content/uploads/2015/08/amazon-logo-black-square-e1440610992440.png",
 			"url": "https://amazon.com/"
 		}, {
 			"name": "humblebundle"
@@ -11,7 +11,7 @@ Model.favs = [
 			"url": "https://www.humblebundle.com/"
 		}, {
 			"name": "youtube"
-			"icon": "https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png",
+			"icon": "https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg",
 			"url": "https://www.youtube.com/"
 		}, {
 			"name": "saarlanduniveristy"
@@ -30,8 +30,32 @@ Model.favs = [
 			"icon": "https://vignette2.wikia.nocookie.net/logopedia/images/b/b2/NetflixIcon2016.jpg/revision/latest/scale-to-width-down/2000?cb=20160620223003",
 			"url": "https://www.netflix.com/"
 		}, {
+			"name": "wikipedia"
+			"icon": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1024px-Wikipedia-logo-v2.svg.png",
+			"url": "https://www.wikipedia.org/"
+		}, {
+			"name": "github"
+			"icon": "https://github.com/fluidicon.png",
+			"url": "https://www.github.com/"
+		}, {
+			"name": "twitter"
+			"icon": "https://g.twimg.com/Twitter_logo_blue.png",
+			"url": "https://www.twitter.com/"
+		}, {
+			"name": "audible"
+			"icon": "https://maxcdn.icons8.com/Share/icon/color/Logos//audible1600.png",
+			"url": "https://www.audible.com/"
+		}, {
+			"name": "twitch"
+			"icon": "https://vignette3.wikia.nocookie.net/logopedia/images/8/83/Twitch_icon.svg/revision/latest?cb=20140727180700",
+			"url": "https://www.twitch.tv/"
+		}, {
+			"name": "dict"
+			"icon": "https://lh3.googleusercontent.com/fp3n8D0BTLVaV63Pwyi7BhZaoXovNjteOKxcJHZ-FiqEXN4Q2TtEy7Af-BLi7Xff5g=w300",
+			"url": "https://dict.cc"
+		}, {
 			"name": "facebook"
-			"icon": "https://img06.deviantart.net/876b/i/2009/297/b/8/facebook_icon_by_ben_anderson.png",
+			"icon": "http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png",
 			"url": "https://www.facebook.com/"
 		}
 	]
