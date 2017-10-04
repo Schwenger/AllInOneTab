@@ -1,14 +1,11 @@
 {
   "manifest_version": 2,
 
-  "name": "__MSG_extName__",
-  "description": "This extension will enhance your new-tab page by displaying a customizable background image and provide shortcuts to the most frequently used websites.",
-  "version": "1.0",
-  "default_locale": "en",
+  "name": "AllInOnTab",
+  "description": "This extension will enhance your new-tab page by displaying shortcuts to your favorite websites and displays your time table.",
+  "version": "2.0",
 
-  "options_page": "options/options.html",
-
-  "permissions": ["bookmarks", "history", "storage"],
+  "permissions": ["storage", "tabs"],
 
   "chrome_url_overrides": {
     "newtab": "out/main.html"
