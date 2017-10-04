@@ -5,58 +5,72 @@ Model.favs = [
 			"name": "amazon"
 			"icon": "https://topclassactions.com/wp-content/uploads/2015/08/amazon-logo-black-square-e1440610992440.png",
 			"url": "https://amazon.com/"
+			"count": 0
 		}, {
 			"name": "humblebundle"
 			"icon": "https://pbs.twimg.com/profile_images/609471525863976960/r3m_pjpj.png",
 			"url": "https://www.humblebundle.com/"
+			"count": 0
 		}, {
 			"name": "youtube"
 			"icon": "https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg",
 			"url": "https://www.youtube.com/"
+			"count": 0
 		}, {
 			"name": "saarlanduniveristy"
 			"icon": "https://www.szsb.uni-saarland.de/tl_files/szsb/bilder/layout/logos/unieule.png",
 			"url": "http://www.uni-saarland.de/nc/startseite.html"
+			"count": 0
 		}, {
 			"name": "react"
 			"icon": "https://avatars1.githubusercontent.com/u/12135913?v=4&s=200",
 			"url": "https://www.react.uni-saarland.de/"
+			"count": 0
 		}, {
 			"name": "amazonmusic"
 			"icon": "https://images-na.ssl-images-amazon.com/images/I/41VXGF76krL._SX425_.jpg",
-			"url": "https://www.music.amazon.com/"
+			"url": "https://music.amazon.com/home"
+			"count": 0
 		}, {
 			"name": "netflix"
 			"icon": "https://vignette2.wikia.nocookie.net/logopedia/images/b/b2/NetflixIcon2016.jpg/revision/latest/scale-to-width-down/2000?cb=20160620223003",
 			"url": "https://www.netflix.com/"
+			"count": 0
 		}, {
 			"name": "wikipedia"
 			"icon": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1024px-Wikipedia-logo-v2.svg.png",
 			"url": "https://www.wikipedia.org/"
+			"count": 0
 		}, {
 			"name": "github"
 			"icon": "https://github.com/fluidicon.png",
 			"url": "https://www.github.com/"
+			"count": 0
 		}, {
 			"name": "twitter"
 			"icon": "https://g.twimg.com/Twitter_logo_blue.png",
 			"url": "https://www.twitter.com/"
+			"count": 0
 		}, {
 			"name": "audible"
 			"icon": "https://maxcdn.icons8.com/Share/icon/color/Logos//audible1600.png",
 			"url": "https://www.audible.com/"
+			"count": 0
 		}, {
 			"name": "twitch"
 			"icon": "https://vignette3.wikia.nocookie.net/logopedia/images/8/83/Twitch_icon.svg/revision/latest?cb=20140727180700",
 			"url": "https://www.twitch.tv/"
+			"count": 0
 		}, {
 			"name": "dict"
 			"icon": "https://lh3.googleusercontent.com/fp3n8D0BTLVaV63Pwyi7BhZaoXovNjteOKxcJHZ-FiqEXN4Q2TtEy7Af-BLi7Xff5g=w300",
 			"url": "https://dict.cc"
+			"count": 0
 		}, {
 			"name": "facebook"
 			"icon": "http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png",
 			"url": "https://www.facebook.com/"
+			"count": 0
 		}
 	]
 
