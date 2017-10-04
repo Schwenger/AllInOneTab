@@ -22,7 +22,7 @@ class TimeTable
 		"nameonly": 0
 
 	emptyCell: ->
-		$("<div class='timetable-cell timetable-cell-#{@SLOTS} timetable-cell-empty'>")
+		[$("<div class='timetable-cell timetable-cell-#{@SLOTS} timetable-cell-empty'>"), () -> return]
 
 	constructor: () ->
 		0 # Nothing to do, really.
@@ -54,9 +54,9 @@ class TimeTable
 			cells = (@createCell(period, content, narrow) for period in appointments)
 			for [cell, handler] in cells
 				day_obj.append cell 
-				day_obj.click(handler)
+				cell.click(handler) if handler?
+				sample = cell unless sample? # Pick any non-header cell as sample.
 			root.append(day_obj)
-			[..., sample] = cells unless sample? # Pick any non-header cell as sample.
 		return sample # return any representative cell, i.e. not a header cell.
 
 	createDay: (day, narrow) ->
@@ -75,5 +75,10 @@ class TimeTable
 			cell.append( $("<span class='room'> #{period.room} </span>") )
 		if content > @CellContent.noteacher
 			cell.append( $("<span class='prof'> #{period.teacher} </span>") ) 
-		handler = () -> chrome.tabs.update({ url: period.link }) if period.link?
+		handler = () -> 
+			return unless period.link
+			if chrome.tabs?
+				chrome.tabs.update { url: period.link }
+			else 
+				document.location.href = period.link
 		return [cell, handler]
