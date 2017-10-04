@@ -15,6 +15,8 @@ class TimeTable
 	DAYS: 5
 	SLOTS: 5
 	PADDING_PERCENT: 2
+	APPOINTMENTS: []
+	APPOINTMENTS_READY: false
 
 	CellContent:
 		"everything": 2 
@@ -25,9 +27,13 @@ class TimeTable
 		[$("<div class='timetable-cell timetable-cell-#{@SLOTS} timetable-cell-empty'>"), () -> return]
 
 	constructor: () ->
-		0 # Nothing to do, really.
+		@prepareAppointments()
 
 	resize: () ->
+		if not @APPOINTMENTS_READY # Wait until appointments are ready...
+			self = @ # Circumvent CSP in a benevolent way.
+			setTimeout((() -> self.resize()), 100) # Busy waiting is the best kind of waiting.
+			return
 		root = $('#timetable')
 		narrow = root.width() / @DAYS < 190 # MAGIC! Or, well, empirical evidence... MAGIC!!
 		content = @CellContent.everything
@@ -82,3 +88,10 @@ class TimeTable
 			else 
 				document.location.href = period.link
 		return [cell, handler]
+
+	prepareAppointments: () ->
+		self = @ # Make @ available in closure.
+		chrome.storage.sync.get("timetable", (data) -> 
+			self.APPOINTMENTS = data.timetable
+			self.APPOINTMENTS_READY = true
+			)
