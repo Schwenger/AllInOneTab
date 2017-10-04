@@ -52,7 +52,9 @@ class TimeTable
 		for appointments, i in Model.appointments 
 			day_obj = @createDay num2day(i), narrow
 			cells = (@createCell(period, content, narrow) for period in appointments)
-			day_obj.append cell for cell in cells
+			for [cell, handler] in cells
+				day_obj.append cell 
+				day_obj.click(handler)
 			root.append(day_obj)
 			[..., sample] = cells unless sample? # Pick any non-header cell as sample.
 		return sample # return any representative cell, i.e. not a header cell.
@@ -73,4 +75,5 @@ class TimeTable
 			cell.append( $("<span class='room'> #{period.room} </span>") )
 		if content > @CellContent.noteacher
 			cell.append( $("<span class='prof'> #{period.teacher} </span>") ) 
-		return cell
+		handler = () -> chrome.tabs.update({ url: period.link }) if period.link?
+		return [cell, handler]

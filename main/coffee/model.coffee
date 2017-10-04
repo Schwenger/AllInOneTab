@@ -38,11 +38,12 @@ Model.favs = [
 
 
 verification = 
-	"name": "Verification",
+	"name": "Verification"
 	"room": "E1.3 HS002"
 	"abbrev": "Ver"
 	"teacher": "J. Doe"
 	"color": [66, 134, 244]
+	"link": "https://www.react.uni-saarland.de/teaching/"
 
 emsys = 
 	"name": "Embedded Systems",
@@ -50,6 +51,7 @@ emsys =
 	"abbrev": "ES"
 	"teacher": "J. Snow"
 	"color": [138, 229, 2]
+	"link": "https://www.react.uni-saarland.de/teaching/"
 
 runtime = 
 	"name": "Runtime Verification",
@@ -57,6 +59,7 @@ runtime =
 	"abbrev": "RV"
 	"teacher": "S. Mario"
 	"color": [143, 63, 255]
+	"link": "https://www.react.uni-saarland.de/teaching/"
 
 hybrid = 
 	"name": "Hybrid Systems",
@@ -64,6 +67,7 @@ hybrid =
 	"abbrev": "HySy"
 	"teacher": "T. Flowers"
 	"color": [229, 161, 2]
+	"link": "https://www.react.uni-saarland.de/teaching/"
 
 nothing = undefined
 
